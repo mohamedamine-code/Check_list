@@ -61,97 +61,99 @@ void delatenote(index){
     return Scaffold(
       body: Center(
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Check List',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
-                ),
-                SizedBox(
-                  height: 100,
-                ),
-                TextField(
-                  controller: controller,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text('Take a note ..')
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Check List',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        add_note();
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: const Color.fromARGB(255, 0, 129, 4)
-                        ),
-                        child: Center(child: Text('ADD',style: TextStyle(fontSize: 17))),
-                    )
+                  SizedBox(
+                    height: 100,
+                  ),
+                  TextField(
+                    controller: controller,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      label: Text('Take a note ..')
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        clear();
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color:  Colors.grey
-                        ),
-                        child: Center(child: Text('Clear',style: TextStyle(fontSize: 17))),
-                    )
-                    ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15,right: 25,bottom: 20,top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text('Name Tache ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-                      Text('State ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20)),
+                      GestureDetector(
+                        onTap: (){
+                          add_note();
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: const Color.fromARGB(255, 0, 129, 4)
+                          ),
+                          child: Center(child: Text('ADD',style: TextStyle(fontSize: 17))),
+                      )
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          clear();
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color:  Colors.grey
+                          ),
+                          child: Center(child: Text('Clear',style: TextStyle(fontSize: 17))),
+                      )
+                      ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                      
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 200,
-                      child: ListView.builder(
-                        itemCount: bd.MyList.length,
-                        itemBuilder: (BuildContext context,index){
-                        return list_note(
-                          delatenote: (){
-                            delatenote(index);
-                          },
-                          data: bd.MyList[index][0],
-                          ischecked: bd.MyList[index][1],
-                          onChanged: (){
-                            onChanged(index);
-                          },
-                        );
-                      }),
-                    )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15,right: 25,bottom: 20,top: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Name Tache ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                        Text('State ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20)),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 200,
+                        child: ListView.builder(
+                          itemCount: bd.MyList.length,
+                          itemBuilder: (BuildContext context,index){
+                          return list_note(
+                            delatenote: (){
+                              delatenote(index);
+                            },
+                            data: bd.MyList[index][0],
+                            ischecked: bd.MyList[index][1],
+                            onChanged: (){
+                              onChanged(index);
+                            },
+                          );
+                        }),
+                      )
+                ],
+              ),
             ),
           ),
         ),

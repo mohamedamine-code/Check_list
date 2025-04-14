@@ -59,16 +59,20 @@ void delatenote(index){
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
       body: Center(
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text('Check List',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 40),),
+                ),
+                SizedBox(
+                  height: 100,
                 ),
                 TextField(
                   controller: controller,
@@ -130,7 +134,8 @@ void delatenote(index){
                     ],
                   ),
                 ),
-                Expanded(
+                SizedBox(
+                  height: 200,
                       child: ListView.builder(
                         itemCount: bd.MyList.length,
                         itemBuilder: (BuildContext context,index){

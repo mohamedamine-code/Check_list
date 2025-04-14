@@ -27,7 +27,7 @@ class list_note extends StatelessWidget {
                 delatenote();
               },
               child: Container(
-                width: 160,
+                width: 140,
                 decoration: BoxDecoration(color: Colors.red),
                 child: Center(child: Icon(Icons.delete)),
               ),
